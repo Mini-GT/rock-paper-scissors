@@ -14,11 +14,11 @@ document.body.addEventListener("keydown", (e) => {
 
 let setIntervalClass;
 let isAutoPlaying = false;
-let storePlayerMoves =
-  JSON.parse(localStorage.getItem("playerMove")) || "scissors";
+let storePlayerMoves = JSON.parse(localStorage.getItem("playerMove")) || "rock";
 let storeComputerMoves =
-  JSON.parse(localStorage.getItem("computerMove")) || "scissors";
-let storeResult = JSON.parse(localStorage.getItem("result")) || "";
+  JSON.parse(localStorage.getItem("computerMove")) || "rock";
+let storeResult =
+  JSON.parse(localStorage.getItem("result")) || "Ready to Play?";
 let score = JSON.parse(localStorage.getItem("score")) || {
   wins: 0,
   losses: 0,
@@ -35,11 +35,11 @@ const elementsHTML = {
 
 const { resetBtn, auto, scores, playerMove, computerMove } = elementsHTML;
 
-auto.addEventListener('click', () => {
+auto.addEventListener("click", () => {
   autoplay();
 });
 
-resetBtn.addEventListener('click', () => {
+resetBtn.addEventListener("click", () => {
   showResetQuestion();
 });
 
@@ -72,8 +72,8 @@ function playerMoves(playerMove) {
       result = "You Win";
     } else if (computerMove === "scissors") {
       result = "Tie";
-    };
-  };
+    }
+  }
 
   if (result === "You Win") {
     score.wins++;
@@ -81,7 +81,7 @@ function playerMoves(playerMove) {
     score.losses++;
   } else if (result === "Tie") {
     score.ties++;
-  };
+  }
 
   storePlayerMoves = playerMove;
   storeComputerMoves = computerMove;
@@ -92,12 +92,12 @@ function playerMoves(playerMove) {
   localStorage.setItem("result", JSON.stringify(storeResult));
   document.querySelector(".result").innerHTML = `${result}`;
   renderElement();
-};
+}
 
 function renderElement() {
   scores.innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
-  playerMove.innerHTML = `You <img class="playMove" src="/projects/images/${storePlayerMoves}-emoji.png" alt="scissors">`;
-  computerMove.innerHTML = `<img class="compMove" src="/projects/images/${storeComputerMoves}-emoji.png" alt="scissors"> Computer`;
+  playerMove.innerHTML = `You <img class="playMove" src="./images/${storePlayerMoves}-emoji.png" alt="scissors">`;
+  computerMove.innerHTML = `<img class="compMove" src="./images/${storeComputerMoves}-emoji.png" alt="scissors"> Computer`;
   document.querySelector(".result").innerHTML = storeResult;
 };
 
