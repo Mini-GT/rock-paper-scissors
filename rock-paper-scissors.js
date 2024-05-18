@@ -96,10 +96,10 @@ function playerMoves(playerMove) {
 
 function renderElement() {
   scores.innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
-  playerMove.innerHTML = `You <img class="playMove" src="./images/${storePlayerMoves}-emoji.png" alt="scissors">`;
-  computerMove.innerHTML = `<img class="compMove" src="./images/${storeComputerMoves}-emoji.png" alt="scissors"> Computer`;
+  playerMove.innerHTML = `You <img class="playMove" src="./images/${storePlayerMoves}-emoji.png" alt="${storePlayerMoves}">`;
+  computerMove.innerHTML = `<img class="compMove" src="./images/${storeComputerMoves}-emoji.png" alt="${storeComputerMoves}"> Computer`;
   document.querySelector(".result").innerHTML = storeResult;
-};
+}
 
 function pickComputerMove() {
   const randomNum = Math.random();
@@ -111,14 +111,14 @@ function pickComputerMove() {
     computerMove = "paper";
   } else if (randomNum >= 2 / 3 && randomNum <= 1) {
     computerMove = "scissors";
-  };
+  }
   return computerMove;
-};
+}
 
 function clearResultandMoves(result, moves) {
   document.querySelector(`.${result}`).innerHTML = "";
   document.querySelector(`.${moves}`).innerHTML = "";
-};
+}
 
 function autoplay(move) {
   if (!isAutoPlaying) {
@@ -132,43 +132,40 @@ function autoplay(move) {
     isAutoPlaying = false;
     auto.innerText = "Auto Play";
     clearInterval(setIntervalClass);
-  };
-};
+  }
+}
 
 function resetScore() {
-  localStorage.removeItem('playerMove');
-  localStorage.removeItem('computerMove');
-  localStorage.removeItem('result');
-  localStorage.removeItem('score');
+  localStorage.removeItem("playerMove");
+  localStorage.removeItem("computerMove");
+  localStorage.removeItem("result");
+  localStorage.removeItem("score");
   score = {
     wins: 0,
     losses: 0,
-    ties: 0
+    ties: 0,
   };
-  storePlayerMoves = 'scissors';
-  storeComputerMoves = 'scissors';
+  storePlayerMoves = "rock";
+  storeComputerMoves = "rock";
   renderElement();
-};
+}
 
 function showResetQuestion() {
-  const container = document.querySelector('.askReset');
+  const container = document.querySelector(".askReset");
   container.innerHTML = `<p>Are you sure you want to reset score?</p>
   <button class="yesBtn">Yes</button>
   <button class="noBtn">No</button>`;
 
-  const noBtn = document.querySelector('.noBtn');
-  const yesBtn = document.querySelector('.yesBtn');
+  const noBtn = document.querySelector(".noBtn");
+  const yesBtn = document.querySelector(".yesBtn");
 
-  noBtn.addEventListener('click', () => {
-    container.innerHTML = ' ';
+  noBtn.addEventListener("click", () => {
+    container.innerHTML = " ";
     return;
   });
 
-  yesBtn.addEventListener('click', () => {
+  yesBtn.addEventListener("click", () => {
     resetScore();
-    container.innerHTML = ' ';
+    container.innerHTML = " ";
   });
-};
-
-
-
+}
