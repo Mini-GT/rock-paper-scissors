@@ -163,12 +163,15 @@ function showResetQuestion() {
   const yesBtn = document.querySelector(".yesBtn");
 
   noBtn.addEventListener("click", () => {
-    container.innerHTML = " ";
+    askContainer.innerHTML = " ";
+    askBtn.innerHTML = " ";
     return;
   });
 
   yesBtn.addEventListener("click", () => {
     resetScore();
-    container.innerHTML = " ";
+    askContainer.innerHTML = " ";
+    askBtn.innerHTML = " ";
+    document.querySelector(".result").innerHTML = "Ready to Play?";
   });
 }
