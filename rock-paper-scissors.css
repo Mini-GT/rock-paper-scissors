@@ -62,8 +62,9 @@ img {
 
 .bothmoves {
   display: flex;
-  justify-content: space-between;
   flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 20rem;
   margin: 0 0 2rem 0;
   flex: 1 0 0;
   position: relative;
@@ -77,16 +78,18 @@ img {
 }
 
 .computerMove {
-  margin: 1px;
+  margin-left: -2rem;
 }
 
-.askReset {
-  margin-top: 2rem;
+.askReset p {
+  font-size: 2rem;
+  margin: 5px;
+}
+
+.askResetBtn {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: 700px;
-  font-size: 30px;
+  width: 140px;
 }
 
 .noBtn, .yesBtn {
@@ -99,6 +102,14 @@ img {
   flex-wrap: nowrap;
 }
 
+.playerMove {
+  margin-right: 10rem;
+}
+
+.playerMove .playMove{
+  margin-left: -1.50rem;
+}
+
 .scores-output {
   margin-bottom: 1rem;
   font-size: 1.25rem;
@@ -108,17 +119,32 @@ img {
   margin: 10px;
   width: fit-content;
 }
+
+.computerMove .compMove {
+  margin-left: 1rem;
+}
+
+
+
 @media (max-width: 450px) {
   img {
     width: 3.5rem;
   }
 
-  .computerMove .compMove {
+  /* .computerMove .compMove {
     margin-left: 25px;
-  }
+  }*/
 
   .computerMove {
-    margin-left: 60px;
+    margin-left: -7rem;
+  }
+
+  .playerMove {
+    margin-left: 1rem;
+  }
+
+  .playerMove .playMove{
+    margin-left: -5px;
   }
 
   .title {
@@ -128,6 +154,8 @@ img {
 
   .bothmoves {
     font-size: 1.5rem;
+    width: 5rem;
+    justify-content: center;
   }
 
   .askReset{
