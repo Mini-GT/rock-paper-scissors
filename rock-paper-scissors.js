@@ -96,8 +96,8 @@ function playerMoves(playerMove) {
 
 function renderElement() {
   scores.innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
-  playerMove.innerHTML = `You <img class="playMove" src="./images/${storePlayerMoves}-emoji.png" alt="${storePlayerMoves}">`;
-  computerMove.innerHTML = `<img class="compMove" src="./images/${storeComputerMoves}-emoji.png" alt="${storeComputerMoves}"> Computer`;
+  playerMove.innerHTML = `<img class="playMove" src="./images/${storePlayerMoves}-emoji.png" alt="${storePlayerMoves}"> <br> You`;
+  computerMove.innerHTML = `<img class="compMove" src="./images/${storeComputerMoves}-emoji.png" alt="${storeComputerMoves}"> <br> Computer`;
   document.querySelector(".result").innerHTML = storeResult;
 }
 
@@ -151,10 +151,13 @@ function resetScore() {
 }
 
 function showResetQuestion() {
-  const container = document.querySelector(".askReset");
-  container.innerHTML = `<p>Are you sure you want to reset score?</p>
+  const askContainer = document.querySelector(".askReset");
+  const askBtn = document.querySelector(".askResetBtn");
+  askContainer.innerHTML = `<p>Are you sure you want to reset score?</p>`;
+  askBtn.innerHTML = `
   <button class="yesBtn">Yes</button>
-  <button class="noBtn">No</button>`;
+  <button class="noBtn">No</button>
+  `;
 
   const noBtn = document.querySelector(".noBtn");
   const yesBtn = document.querySelector(".yesBtn");
